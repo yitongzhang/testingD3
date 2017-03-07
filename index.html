@@ -1,44 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>D3 Test</title>
-    <script type="text/javascript" src="d3/d3.v3.js"></script>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
-
+<meta charset="utf-8">
 <style>
 
-    .node circle {
-      fill: #999;
-    }
+.node circle {
+  fill: #999;
+}
 
-    .node text {
-      font: 10px sans-serif;
-    }
+.node text {
+  font: 10px sans-serif;
+}
 
-    .node--internal circle {
-      fill: #555;
-    }
+.node--internal circle {
+  fill: #555;
+}
 
-    .node--internal text {
-      text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
-    }
+.node--internal text {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
 
-    .link {
-      fill: none;
-      stroke: #555;
-      stroke-opacity: 0.4;
-      stroke-width: 1.5px;
-    }
+.link {
+  fill: none;
+  stroke: #555;
+  stroke-opacity: 0.4;
+  stroke-width: 1.5px;
+}
 
 </style>
-
 <svg width="960" height="1060"></svg>
-
 <script src="https://d3js.org/d3.v4.min.js"></script>
-
 <script>
 
 var svg = d3.select("svg"),
@@ -53,7 +42,7 @@ var tree = d3.tree()
     .size([360, 500])
     .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
 
-d3.csv("dummy.csv", function(error, data) {
+d3.csv("data/dummy.csv", function(error, data) { 
   if (error) throw error;
 
   var root = tree(stratify(data));
@@ -92,6 +81,3 @@ function project(x, y) {
 }
 
 </script>
-
-</body>
-</html>    
